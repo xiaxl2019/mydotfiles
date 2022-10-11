@@ -65,6 +65,7 @@ let g:tagbar_sort = 0
 
 " Plug 'dense-analysis/ale'
 let g:ale_linters = {'python': ['flake8'], 'cpp': ['cpplint']}
+let g:ale_python_flake8_options = '--max-line-length=120'
 let g:ale_cpp_cpplint_options = '--filter=-legal/copyright,-whitespace/line_length,-build/namespaces'
 
 " Plug 'ycm-core/YouCompleteMe'
