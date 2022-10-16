@@ -22,11 +22,11 @@ Plug 'preservim/nerdcommenter'
 " Tagbar
 Plug 'preservim/tagbar', { 'on': 'TagbarOpen' }
 
-" ALE
-Plug 'dense-analysis/ale', { 'do': 'pip3 install --user flake8 cpplint' }
+" " ALE
+" Plug 'dense-analysis/ale', { 'do': 'pip3 install --user flake8 cpplint' }
 
-" YCM
-Plug 'ycm-core/YouCompleteMe', { 'do': './install.py --clangd-completer' }
+" " YCM
+" Plug 'ycm-core/YouCompleteMe', { 'do': './install.py --clangd-completer' }
 
 call plug#end()
 
@@ -63,19 +63,19 @@ let g:NERDSpaceDelims = 1
 nmap <F2> :TagbarOpen fj<CR>
 let g:tagbar_sort = 0
 
-" Plug 'dense-analysis/ale'
-let g:ale_linters = {'python': ['flake8'], 'cpp': ['cpplint']}
-let g:ale_python_flake8_options = '--ignore E731 --max-line-length 120'
-let g:ale_cpp_cpplint_options = '--filter=-legal/copyright,-whitespace/line_length,-build/namespaces'
+" " Plug 'dense-analysis/ale'
+" let g:ale_linters = {'python': ['flake8'], 'cpp': ['cpplint']}
+" let g:ale_python_flake8_options = '--ignore E731 --max-line-length 120'
+" let g:ale_cpp_cpplint_options = '--filter=-legal/copyright,-whitespace/line_length,-build/namespaces'
 
-" Plug 'ycm-core/YouCompleteMe'
-let g:ycm_global_ycm_extra_conf='~/.vim/plugged/YouCompleteMe/third_party/ycmd/.ycm_extra_conf.py'
-nnoremap gd :YcmCompleter GetDoc<CR>
-nnoremap \g :YcmCompleter GoTo<CR>
-nnoremap \b :bp<CR>
-nnoremap \f :YcmCompleter FixIt<CR>
-let g:ycm_autoclose_preview_window_after_completion=0
-let g:ycm_autoclose_preview_window_after_insertion=1
+" " Plug 'ycm-core/YouCompleteMe'
+" let g:ycm_global_ycm_extra_conf='~/.vim/plugged/YouCompleteMe/third_party/ycmd/.ycm_extra_conf.py'
+" nnoremap gd :YcmCompleter GetDoc<CR>
+" nnoremap \g :YcmCompleter GoTo<CR>
+" nnoremap \b :bp<CR>
+" nnoremap \f :YcmCompleter FixIt<CR>
+" let g:ycm_autoclose_preview_window_after_completion=0
+" let g:ycm_autoclose_preview_window_after_insertion=1
 
 
 " ===================================================================
@@ -111,6 +111,8 @@ set expandtab tabstop=4 shiftwidth=4
 
 autocmd FileType xml,html inoremap </ </<C-x><C-o>
 
+set backspace=indent,eol,start
+set incsearch hlsearch
 
 " ===================================================================
 "                              Vimscript
