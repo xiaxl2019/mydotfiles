@@ -115,6 +115,9 @@ autocmd FileType xml,html inoremap </ </<C-x><C-o>
 " ===================================================================
 "                              Vimscript
 " ===================================================================
-source ~/.vim/SaveAndRun.vim
-source ~/.vim/NewFile.vim
-
+if filereadable(expand("~/.vim/SaveAndRun.vim"))
+    source ~/.vim/SaveAndRun.vim
+endif
+if filereadable(expand("~/.vim/NewFile.vim"))
+    source ~/.vim/NewFile.vim
+endif
