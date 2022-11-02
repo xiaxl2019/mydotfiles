@@ -46,11 +46,16 @@ HISTCONTROL=ignoreboth:erasedups
 PROMPT_COMMAND="${PROMPT_COMMAND}; history -n; history -w; history -c; history -r"
 
 function mycd() {
-    cd $1 && return
+    if [[ $# == 0 ]]; then
+        cd ~
+        return
+    fi
+
+    cd "$1" && return
 
     read -p "enter [y] to mkdir it: " prompt
     if [[ $prompt == "y" ]]; then
-        mkdir $1 && cd $1
+        mkdir "$1" && cd "$1"
     fi
 }
 
