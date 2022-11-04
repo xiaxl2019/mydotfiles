@@ -22,6 +22,9 @@ Plug 'preservim/nerdcommenter'
 " Tagbar
 Plug 'preservim/tagbar', { 'on': 'TagbarOpen' }
 
+" Auto-pairs
+Plug 'jiangmiao/auto-pairs'
+
 " ALE
 Plug 'dense-analysis/ale', { 'do': 'pip3 install --user flake8 cpplint' }
 
