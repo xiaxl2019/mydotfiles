@@ -16,20 +16,19 @@ Plug 'Vimjas/vim-python-pep8-indent'
 " Easy-align
 Plug 'junegunn/vim-easy-align'
 
-" Nerd-commenter
+" Nerds
 Plug 'preservim/nerdcommenter'
-
-" Tagbar
+Plug 'preservim/nerdtree'
 Plug 'preservim/tagbar', { 'on': 'TagbarOpen' }
-
-" Auto-pairs
-Plug 'jiangmiao/auto-pairs'
 
 " ALE
 Plug 'dense-analysis/ale', { 'do': 'pip3 install --user flake8 cpplint' }
 
 " YCM
 Plug 'ycm-core/YouCompleteMe', { 'do': './install.py --clangd-completer' }
+
+Plug '~/vim-runfile'
+Plug '~/vim-newfile'
 
 call plug#end()
 
@@ -62,8 +61,11 @@ nmap ga <Plug>(EasyAlign)
 let g:NERDCustomDelimiters = { 'python': { 'left': '#' } }
 let g:NERDSpaceDelims = 1
 
+" Plug 'preservim/nerdtree'
+nnoremap <F2> :NERDTreeFocus<CR>
+
 " Plug 'preservim/tagbar'
-nmap <F2> :TagbarOpen fj<CR>
+nnoremap <F3> :TagbarOpen fj<CR>
 let g:tagbar_sort = 0
 
 " Plug 'dense-analysis/ale'
@@ -80,12 +82,18 @@ nnoremap \f :YcmCompleter FixIt<CR>
 let g:ycm_autoclose_preview_window_after_completion=0
 let g:ycm_autoclose_preview_window_after_insertion=1
 
+" Plug '~/vim-runfile'
+let g:runfile_rules = {'python': '',
+            \          'sh': '',
+            \          'cpp': 'w | !g++ % -o %<.o && time ./%<.o'
+            \          }
+let g:runfile_default_rule = 'w | !chmod u+x % && time ./%'
 
 " ===================================================================
 "                                 Map
 " ===================================================================
 nnoremap <leader>l :nohlsearch<CR>
-nmap <leader>yy yy <leader>cc p
+nmap <leader>yy yy<leader>ccp
 
 nnoremap <leader>q :q<CR>
 nnoremap <s-Q> :qa<CR>
@@ -113,14 +121,3 @@ set wildmenu
 set expandtab tabstop=4 shiftwidth=4
 
 autocmd FileType xml,html inoremap </ </<C-x><C-o>
-
-
-" ===================================================================
-"                              Vimscript
-" ===================================================================
-if filereadable(expand("~/.vim/SaveAndRun.vim"))
-    source ~/.vim/SaveAndRun.vim
-endif
-if filereadable(expand("~/.vim/NewFile.vim"))
-    source ~/.vim/NewFile.vim
-endif
